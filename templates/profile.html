@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Profile Page</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <style>
+      body {
+        background-color: #000000;
+        color: #00ff00;
+        font-family: "Consolas", monospace;
+        text-align: center;
+        margin-bottom: 60px; /* Added to make space for the footer */
+      }
+
+      .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .box {
+        background-color: #111111;
+        padding: 30px;
+        border: 2px solid #00ff00;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #00ff00;
+        font-size: 20px;
+      }
+
+      .box h1 {
+        font-family: "Orbitron", sans-serif;
+        font-size: 30px;
+        margin-bottom: 20px;
+      }
+
+      .circle {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background-color: #111111;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        border: 2px solid #ff0000;
+        animation: glowing 2s ease-in-out infinite;
+      }
+
+      .circle img {
+        max-width: 100%;
+        max-height: 100%;
+        border-radius: 50%;
+      }
+
+      .username {
+        font-size: 24px;
+        font-weight: bold;
+      }
+
+      @keyframes glowing {
+        0% {
+          border-color: #ff0000;
+          box-shadow: 0 0 10px #ff0000;
+        }
+        50% {
+          border-color: #ff3333;
+          box-shadow: 0 0 20px #ff3333;
+        }
+        100% {
+          border-color: #ff0000;
+          box-shadow: 0 0 10px #ff0000;
+        }
+      }
+
+      .back-button {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #111111;
+        color: #00ff00;
+        border: 2px solid #00ff00;
+        border-radius: 5px;
+        padding: 5px 10px;
+        font-family: "Consolas", monospace;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+
+      .back-button:hover {
+        background-color: #00ff00;
+        color: #111111;
+      }
+
+      .footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #111111;
+        padding: 10px 0;
+        text-align: center;
+      }
+
+      .footer a {
+        text-decoration: none;
+        color: #00ff00;
+        transition: background-color 0.3s, color 0.3s;
+      }
+
+      .footer a:hover {
+        background-color: #00ff00;
+        color: #111111;
+      }
+    </style>
+  </head>
+  <body>
+    <a href="/" class="back-button">
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+      />
+      <span class="material-symbols-outlined">arrow_back_ios</span>
+    </a>
+
+    <div class="container">
+      <div class="box">
+        <h1>User was Found on the database!</h1>
+        <div class="circle" id="profile-picture"></div>
+        <h2 class="username" id="username"></h2>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <a
+        target="_blank"
+        href="https://psychosherlock.github.io"
+        class="underline"
+        >Made with 💙 by psychoSherlock</a
+      >
+    </footer>
+
+    <script>
+      // Get the username from the URL parameter
+      var urlParams = new URLSearchParams(window.location.search);
+      var username = urlParams.get("username");
+      console.log(username);
+
+      // Set the username dynamically
+      document.getElementById("username").innerHTML = username;
+
+      // Generate the avatar image URL
+      var avatarUrl = `https://robohash.org/${username.length.toString()}.png`;
+
+      // Create and set the profile picture image dynamically
+      var profilePicture = document.createElement("img");
+      profilePicture.src = avatarUrl;
+      profilePicture.alt = "Profile Picture";
+
+      document.getElementById("profile-picture").appendChild(profilePicture);
+    </script>
+  </body>
+</html>
