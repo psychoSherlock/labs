@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.after_request
 def add_csp_header(response):
-    response.headers['Content-Security-Policy'] = "script-src 'self' https://accounts.google.com https://www.youtube.com; object-src 'none'"
+    response.headers['Content-Security-Policy'] = "script-src 'self' https://accounts.google.com object-src 'none'"
     return response
 
 
