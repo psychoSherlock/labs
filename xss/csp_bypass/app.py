@@ -1,3 +1,6 @@
+# Author: psychoSherlock
+# Date: 30-June-2023 
+
 from flask import Flask, render_template, request, make_response
 
 app = Flask(__name__)
@@ -21,4 +24,5 @@ def profile():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True,port=5000,host="127.0.0.1")
+# Note the app is set on debug mode. Please remove it if you are running it public network
