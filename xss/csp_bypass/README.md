@@ -8,3 +8,5 @@ cd xss/csp_bypass
 
 python3 app.py
 ```
+
+DM me the answers on linkedin 😉 ( find me by OSINT )
