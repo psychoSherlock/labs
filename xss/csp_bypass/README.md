@@ -1,4 +1,4 @@
-## Find a way to bypass the CSP_Protection
+## Find a way to bypass the XSS Protection
 
 #### To setup lab
 ```git
