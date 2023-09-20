@@ -31,9 +31,9 @@ def verify_key(key):
 
 if __name__ == "__main__":
 
-    your_input = "4ck..4ck"
+    password = input('Password: ')
     
-    if verify_key(your_input):
+    if verify_key(password):
         print("Congratulations! You just unhashed me! Follow me for more such challanges: https://github.com/psychoSherlock")
     else:
         print("Whoopsie!! Wrong answer!!")
