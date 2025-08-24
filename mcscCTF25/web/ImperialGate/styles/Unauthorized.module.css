@@ -1,0 +1,269 @@
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@400;600&display=swap");
+
+/* CSS variables are moved to globals.css */
+
+.unauthorizedPage {
+  --ancient-gold: #d4af37;
+  --dark-stone: #1a1a1a;
+  --worn-parchment: #f2e8c9;
+  --imperial-red: #8b0000;
+  --blood-crimson: #a30000;
+  --bright-crimson: #cc0000;
+
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9)),
+    url("data:image/svg+xml,%3Csvg width='20' height='20' viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23d4af37' fill-opacity='0.1' fill-rule='evenodd'%3E%3Ccircle cx='3' cy='3' r='3'/%3E%3Ccircle cx='13' cy='13' r='3'/%3E%3C/g%3E%3C/svg%3E");
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.unauthorizedContainer {
+  text-align: center;
+  max-width: 800px;
+  padding: 2rem;
+  position: relative;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.unauthorizedContainer::before,
+.unauthorizedContainer::after {
+  content: "";
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--ancient-gold);
+}
+
+.unauthorizedContainer::before {
+  top: -10px;
+  left: -10px;
+  border-right: none;
+  border-bottom: none;
+}
+
+.unauthorizedContainer::after {
+  bottom: -10px;
+  right: -10px;
+  border-left: none;
+  border-top: none;
+}
+
+.unauthorizedTitle {
+  font-family: "Cinzel Decorative", cursive;
+  color: var(--bright-crimson);
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(204, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.5),
+    0 0 30px rgba(255, 0, 0, 0.3);
+  animation: pulseGlow 2s infinite alternate;
+  font-weight: 700;
+}
+
+@keyframes pulseGlow {
+  0% {
+    text-shadow: 0 0 10px rgba(204, 0, 0, 0.7), 0 0 20px rgba(255, 0, 0, 0.5);
+  }
+  100% {
+    text-shadow: 0 0 15px rgba(204, 0, 0, 0.9), 0 0 25px rgba(255, 0, 0, 0.7),
+      0 0 35px rgba(255, 0, 0, 0.5);
+  }
+}
+
+.unauthorizedMessage {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--worn-parchment);
+  margin-bottom: 2rem;
+}
+
+.gateButton {
+  display: inline-block;
+  padding: 0.75rem 2rem;
+  font-family: "Cinzel Decorative", cursive;
+  font-size: 1.25rem;
+  color: var(--dark-stone);
+  background: var(--ancient-gold);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: 0.1em;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
+  margin-top: 2rem;
+}
+
+.gateButton:hover {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.8);
+  color: var(--dark-stone);
+  text-decoration: none; /* Explicitly ensure no underline on hover */
+}
+
+.torch {
+  position: absolute;
+  width: 60px;
+  height: 100px;
+  opacity: 0.7;
+  animation: torchFlicker 3s infinite alternate;
+}
+
+.torchLeft {
+  bottom: 15%;
+  left: 10%;
+  transform: rotate(-5deg);
+}
+
+.torchRight {
+  bottom: 15%;
+  right: 10%;
+  transform: rotate(5deg);
+}
+
+.torchFlame {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 50px;
+  background: radial-gradient(
+    ellipse at bottom,
+    #ff6a00,
+    #ff9900,
+    transparent 80%
+  );
+  border-radius: 50% 50% 20% 20%;
+  box-shadow: 0 0 20px 5px rgba(255, 106, 0, 0.6);
+  animation: flameFlicker 0.5s infinite alternate;
+}
+
+.torchBase {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 15px;
+  height: 60px;
+  background: linear-gradient(to right, #333, #777, #333);
+  border-radius: 5px;
+}
+
+.torchHolder {
+  position: absolute;
+  bottom: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 25px;
+  height: 10px;
+  background: #444;
+  border-radius: 5px;
+}
+
+@keyframes flameFlicker {
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1, 1);
+  }
+  25% {
+    transform: translateX(-55%) scale(1.1, 0.9);
+  }
+  50% {
+    transform: translateX(-45%) scale(0.9, 1.1);
+  }
+  75% {
+    transform: translateX(-50%) scale(1, 1);
+  }
+}
+
+@keyframes torchFlicker {
+  0% {
+    opacity: 0.5;
+  }
+  25% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.imperialCrest {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 2rem;
+}
+
+.crestRays {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(139, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0) 70%
+  );
+  animation: glow 4s infinite alternate;
+  border-radius: 50%;
+  transform: scale(1.2);
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 0.7;
+  }
+}
+
+.dust {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='10' cy='10' r='1'/%3E%3Ccircle cx='30' cy='50' r='1'/%3E%3Ccircle cx='70' cy='30' r='1'/%3E%3Ccircle cx='90' cy='80' r='1'/%3E%3Ccircle cx='50' cy='20' r='1'/%3E%3Ccircle cx='20' cy='80' r='1'/%3E%3Ccircle cx='80' cy='50' r='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.bgOrnament {
+  position: absolute;
+  pointer-events: none;
+  opacity: 0.15;
+}
+
+.ornamentTop {
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  color: var(--imperial-red);
+}
+
+.ornamentBottom {
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 3rem;
+  color: var(--imperial-red);
+}
+
+.flicker {
+  animation: flame-flicker 0.5s infinite alternate;
+}

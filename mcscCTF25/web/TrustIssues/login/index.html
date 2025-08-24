@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Breach Detected</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Special Elite", cursive;
+        background: #111111
+          url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAFJGlUWHRYTUw6Y29tLmFkb2JlLnhtcAAAAAAAPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4KPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iWE1QIENvcmUgNS41LjAiPgogPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4KICA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIgogICAgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIj4KICAgPHhtcDpDcmVhdG9yVG9vbD5BZG9iZSBQaG90b3Nob3AgQ0MgMjAxOSAoV2luZG93cyk8L3htcDpDcmVhdG9yVG9vbD4KICA8L3JkZjpEZXNjcmlwdGlvbj4KIDwvcmRmOlJERj4KPC94OnhtcG1ldGE+Cjw/eHBhY2tldCBlbmQ9InIiPz4K")
+          repeat;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ddd;
+      }
+
+      .message-container {
+        background: #1a1a1a;
+        padding: 30px;
+        border-radius: 2px;
+        box-shadow: 0 0 20px rgba(227, 38, 54, 0.2);
+        width: 350px;
+        text-align: center;
+        border-top: 4px solid #e32636;
+        position: relative;
+      }
+
+      .message-container::before {
+        content: "ALERT";
+        position: absolute;
+        top: -15px;
+        right: -15px;
+        background: #e32636;
+        color: white;
+        padding: 5px 10px;
+        font-size: 12px;
+        transform: rotate(15deg);
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      h1 {
+        color: #e32636;
+        margin-bottom: 20px;
+        font-size: 24px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+      }
+
+      .war-symbol {
+        color: #e32636;
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+
+      .message {
+        font-size: 18px;
+        margin: 20px 0;
+        color: #ddd;
+      }
+
+      .enemy-signature {
+        margin-top: 20px;
+        font-size: 12px;
+        color: #888;
+        font-style: italic;
+        border-top: 1px dashed #444;
+        padding-top: 15px;
+      }
+
+      .stamp {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        transform: rotate(15deg);
+        opacity: 0.5;
+        font-size: 12px;
+        color: #e32636;
+        border: 1px solid #e32636;
+        padding: 2px 6px;
+        border-radius: 2px;
+      }
+
+      .classified {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        font-size: 10px;
+        color: #666;
+      }
+
+      .blinking {
+        animation: blink 1s infinite;
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="message-container">
+      <div class="stamp">23/08/2025</div>
+      <div class="war-symbol">⚠️</div>
+      <h1>Security Breach</h1>
+
+      <div class="message blinking">You think you can fool us?</div>
+
+      <div class="message">Redirecting...</div>
+
+      <div class="enemy-signature">
+        <p>~ Operation Chai Wala ~</p>
+      </div>
+
+      <div class="classified">CLASSIFIED LEVEL: HIGH</div>
+    </div>
+
+    <script src="index.js"></script>
+    <!-- I hate people trying to brech us -->
+  </body>
+</html>

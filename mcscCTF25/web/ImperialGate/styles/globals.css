@@ -1,0 +1,82 @@
+/* Global styles to prevent FOUC */
+@import url("https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant+Garamond:wght@400;600&display=swap");
+
+:root {
+  --ancient-gold: #d4af37;
+  --dark-stone: #1a1a1a;
+  --worn-parchment: #f2e8c9;
+  --imperial-red: #8b0000;
+  --blood-crimson: #a30000;
+  --bright-crimson: #cc0000;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: "Cormorant Garamond", serif;
+  background-color: var(--dark-stone);
+  color: var(--worn-parchment);
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Apply default link styling - removed underline on hover */
+a {
+  color: var(--ancient-gold);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none; /* Changed from underline to none */
+}
+
+/* Font display optimization to prevent FOUC */
+@font-face {
+  font-family: "Cinzel Decorative";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Cinzel Decorative"),
+    url(https://fonts.gstatic.com/s/cinzeldecorative/v9/daaCSScvJGqLYhG8nNt8KPPswUAPni7TTMk.woff2)
+      format("woff2");
+}
+
+@font-face {
+  font-family: "Cinzel Decorative";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local("Cinzel Decorative Bold"),
+    url(https://fonts.gstatic.com/s/cinzeldecorative/v9/daaHSScvJGqLYhG8nNt8KPPswUAPniZQa-lK.woff2)
+      format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local("Cormorant Garamond"),
+    url(https://fonts.gstatic.com/s/cormorantgaramond/v10/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtK.woff2)
+      format("woff2");
+}
+
+@font-face {
+  font-family: "Cormorant Garamond";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: local("Cormorant Garamond SemiBold"),
+    url(https://fonts.gstatic.com/s/cormorantgaramond/v10/co3YmX5slCNuHLi8bLeY9MK7whWMhyjQdl9vuQ.woff2)
+      format("woff2");
+}
+
+/* Add a simple CSS animation to ensure styles are loaded before animation starts */
+.page-transition-ready * {
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
