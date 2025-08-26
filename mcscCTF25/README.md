@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository contains challenges created for the MCSC CTF 2025 competition. MCSC (Mits Cyber Security Club) is a cybersecurity community at Muthoot Institute of Technology and Science.
+This repository contains challenges created for the MCSC CTF 2025 competition. MCSC (MITS Cyber Security Club) is a cybersecurity community at Muthoot Institute of Technology and Science.
 
 This is the inaugural CTF event hosted by MCSC since its establishment in 2025. This repository includes only the challenges I've personally developed. Additional challenges from other contributors can be found at [solvz's repository](https://github.com/solvz/mcscCTF-writeups).
 
