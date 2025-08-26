@@ -16,18 +16,6 @@ The enemy left behind a portal that looks like a login screen… but something f
 
 ## Setup and Installation
 
-To run the challenge locally using Docker:
-
-1. Build the Docker container:
-   ```bash
-   docker build -t imperialgate .
-   ```
-2. Run the container:
-   ```bash
-   docker run -p 9090:3000 imperialgate
-   ```
-   The challenge will be available at [http://localhost:9090](http://localhost:9090)
-
 ## Hints
 
 Rumor says that the enemy was fooling us all in the first place. There is neither a portal nor a trail just some code not even hidden in plain site but in plain script
