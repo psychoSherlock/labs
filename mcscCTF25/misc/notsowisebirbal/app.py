@@ -4,6 +4,7 @@ import os
 import logging
 import dotenv
 import tempfile
+from datetime import datetime  # Added for timestamp
 from morse_audio_decoder.morse import MorseCode
 
 dotenv.load_dotenv()
@@ -19,22 +20,20 @@ logger = logging.getLogger(__name__)
 PUZZLES = {
     "I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?": "echo",
     "The more you take, the more you leave behind. What am I?": "footsteps",
-    "I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?": "map",
     "What has keys but no locks, space but no room, and you can enter but not go in?": "keyboard",
     "I'm tall when I'm young, and I'm short when I'm old. What am I?": "candle",
-    "What is always in front of you but can't be seen?": "future",
     "What has many keys but can't open a single lock?": "piano",
     "What can travel around the world while staying in a corner?": "stamp"
 }
 
 # Morse code translations for answers
 MORSE_CODE = {
-    'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.', 'f': '..-.', 
-    'g': '--.', 'h': '....', 'i': '..', 'j': '.---', 'k': '-.-', 'l': '.-..', 
-    'm': '--', 'n': '-.', 'o': '---', 'p': '.--.', 'q': '--.-', 'r': '.-.', 
-    's': '...', 't': '-', 'u': '..-', 'v': '...-', 'w': '.--', 'x': '-..-', 
-    'y': '-.--', 'z': '--..', '0': '-----', '1': '.----', '2': '..---', 
-    '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...', 
+    'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.', 'f': '..-.',
+    'g': '--.', 'h': '....', 'i': '..', 'j': '.---', 'k': '-.-', 'l': '.-..',
+    'm': '--', 'n': '-.', 'o': '---', 'p': '.--.', 'q': '--.-', 'r': '.-.',
+    's': '...', 't': '-', 'u': '..-', 'v': '...-', 'w': '.--', 'x': '-..-',
+    'y': '-.--', 'z': '--..', '0': '-----', '1': '.----', '2': '..---',
+    '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
     '8': '---..', '9': '----.'
 }
 
@@ -79,17 +78,17 @@ def send_help(message):
 def send_puzzle(message):
     """Send a random puzzle when the command /puzzleme is issued."""
     user_id = message.from_user.id
-    
+
     # Select a random puzzle
     puzzle_text, answer = random.choice(list(PUZZLES.items()))
-    
+
     # Store the current puzzle and answer for this user
     user_data[user_id] = {
         'puzzle': puzzle_text,
         'answer': answer.lower(),
         'morse_answer': ''.join(MORSE_CODE.get(char, '') for char in answer.lower() if char in MORSE_CODE)
     }
-    
+
     bot.send_message(message.chat.id,
         f"🧩 *BIRBAL'S NIGHTMARE PUZZLE* 🧩\n\n"
         f"Hey {message.from_user.first_name}! Akbar here with a riddle that made Birbal hide under his turban:\n\n"
@@ -102,7 +101,7 @@ def send_puzzle(message):
 def handle_voice(message):
     """Handle voice messages, audio files and documents (which could be audio files)."""
     user_id = message.from_user.id
-    
+
     # Check if user has an active puzzle
     if user_id not in user_data:
         bot.reply_to(message,
@@ -112,10 +111,10 @@ def handle_voice(message):
             "*Birbal looks relieved that someone else is confused for once*"
         )
         return
-    
+
     # Get user's current puzzle data
     puzzle_data = user_data[user_id]
-    
+
     # Download the audio file
     try:
         if message.voice:
@@ -126,37 +125,43 @@ def handle_voice(message):
             file_info = bot.get_file(message.document.file_id)
         else:
             raise Exception("No audio content found")
-            
+
         # Create a temporary file to save the audio
         with tempfile.NamedTemporaryFile(suffix='.wav', delete=False) as temp_file:
             file_path = temp_file.name
-        
+
         # Download the file
         downloaded_file = bot.download_file(file_info.file_path)
         with open(file_path, 'wb') as audio_file:
             audio_file.write(downloaded_file)
-            
+
         # Decode the Morse code from the audio file
         try:
             morse_code = MorseCode.from_wavfile(file_path)
             decoded_text = morse_code.decode().lower()
-            
+
             # Log the decoded text for debugging
             logger.info(f"Decoded Morse: {decoded_text}")
-            
+
             # Check if the decoded text matches the current puzzle answer
             if decoded_text == puzzle_data['answer']:
+                flag = "mcsc{b1rbal_b34ts_th3_b33ps}"
+                # Log the flag event to flag_log.txt
+                with open('flag_log.txt', 'a') as log_file:
+                    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+                    log_file.write(f"{timestamp} - User ID: {user_id} , User Name: {message.from_user.username} - Flag: {flag}\n")
+
                 bot.reply_to(message,
                     "🎉 *AKBAR IS IMPRESSED* 🎉\n\n"
                     "By the heavens! You solved it with Morse code! Birbal has been trying for WEEKS!\n\n"
-                    f"I knew I'd find someone smarter than Birbal eventually! Here's your reward:\n\n 🔥 mcsc{{b1rbal_b34ts_th3_b33ps}} 🔥 \n\n"
+                    f"I knew I'd find someone smarter than Birbal eventually! Here's your reward:\n\n 🔥 {flag} 🔥 \n\n"
                     f"Want another puzzle? Birbal needs all the help he can get these days!\n\n"
                     f"*Birbal mutters* \"I was just about to solve it...\""
                 )
                 # Reset user data
                 del user_data[user_id]
                 return
-                
+
             # Check if it matches any OTHER puzzle answer
             for puzzle_text, answer in PUZZLES.items():
                 if decoded_text == answer.lower() and puzzle_text != puzzle_data['puzzle']:
@@ -167,7 +172,7 @@ def handle_voice(message):
                         f"*Birbal cups his ear* \"They're solving the wrong puzzle!\""
                     )
                     return
-            
+
             # If it's valid Morse but doesn't match any answer
             bot.reply_to(message,
                 "🤔 *BIRBAL AND AKBAR LISTEN INTENTLY* 🤔\n\n"
@@ -175,7 +180,7 @@ def handle_voice(message):
                 "Try again with the correct solution\n\n"
                 "*Birbal smirks* \"Even I know that's not right.\""
             )
-            
+
         except Exception as e:
             logger.error(f"Error decoding Morse: {str(e)}")
             # If we can't decode the Morse code
@@ -185,7 +190,7 @@ def handle_voice(message):
                 "Make sure your audio contains clear dots and dashes for the answer!\n\n"
                 "*Birbal covers* \"I definitely heard something... I think.\""
             )
-            
+
     except Exception as e:
         logger.error(f"Error processing audio: {str(e)}")
         bot.reply_to(message,
