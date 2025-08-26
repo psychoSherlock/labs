@@ -10,12 +10,6 @@ Over the years, a mighty wall has risen around it — some call it the Gatekeepe
 
 ...or... is it?
 
-## Files Provided
-
-- [Live Challenge Portal](http://challenges.mcsc.space:6969/)
-- [`Dockerfile`](./Dockerfile) - Docker setup for local deployment
-- [`flag.png`](./flag.png) - The final answer (flag)
-
 ## Setup and Installation
 
 To run the challenge locally using Docker:

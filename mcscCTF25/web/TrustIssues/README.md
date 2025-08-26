@@ -8,12 +8,6 @@
 
 The enemy left behind a portal that looks like a login screen… but something feels off. Your mission is to infiltrate it. Don’t just trust what you see on the surface. Gain access, step through the portal, and follow the trail. But beware, not everything beyond is what it seems…
 
-## Files Provided
-
-- [Live Challenge Portal](http://challenges.mcsc.space:9090/)
-- [`index.html`](./index.html) - Main web page
-- [`index.js`](./index.js) - JavaScript logic
-
 ## Setup and Installation
 
 ## Hints
