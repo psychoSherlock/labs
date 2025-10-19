@@ -1,6 +1,6 @@
 # NeuralFluxCorp
 
-**Cost:** 2500
+**Points:** 2500
 
 **Author:** psychoSherlock
 
