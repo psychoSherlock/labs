@@ -1,0 +1,229 @@
+{
+  "systems": [
+    {
+      "id": 1,
+      "name": "Neural-Compute-01",
+      "ip_address": "192.168.10.15",
+      "status": "up",
+      "location": "Data Center A",
+      "last_check": "2025-10-16T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "name": "Neural-Compute-02",
+      "ip_address": "192.168.10.16",
+      "status": "up",
+      "location": "Data Center A",
+      "last_check": "2025-10-16T10:30:00Z"
+    },
+    {
+      "id": 3,
+      "name": "Neural-DB-Primary",
+      "ip_address": "192.168.10.20",
+      "status": "down",
+      "location": "Data Center B",
+      "last_check": "2025-10-16T10:25:00Z"
+    },
+    {
+      "id": 4,
+      "name": "Neural-Gateway-01",
+      "ip_address": "192.168.10.5",
+      "status": "up",
+      "location": "Edge Node",
+      "last_check": "2025-10-16T10:30:00Z"
+    },
+    {
+      "id": 5,
+      "name": "Neural-ML-Cluster-01",
+      "ip_address": "192.168.10.50",
+      "status": "up",
+      "location": "Data Center C",
+      "last_check": "2025-10-16T10:30:00Z"
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Alice Johnson",
+      "email": "alice.johnson@neuralfluxcorp.com",
+      "department": "Machine Learning",
+      "position": "Senior ML Engineer",
+      "salary": 145000,
+      "join_date": "2023-01-15",
+      "status": "active"
+    },
+    {
+      "id": 2,
+      "name": "Bob Smith",
+      "email": "bob.smith@neuralfluxcorp.com",
+      "department": "Data Science",
+      "position": "Data Scientist",
+      "salary": 120000,
+      "join_date": "2023-03-22",
+      "status": "active"
+    },
+    {
+      "id": 3,
+      "name": "Carol Williams",
+      "email": "carol.williams@neuralfluxcorp.com",
+      "department": "Engineering",
+      "position": "DevOps Engineer",
+      "salary": 110000,
+      "join_date": "2022-11-10",
+      "status": "active"
+    },
+    {
+      "id": 4,
+      "name": "David Brown",
+      "email": "david.brown@neuralfluxcorp.com",
+      "department": "Research",
+      "position": "Research Scientist",
+      "salary": 155000,
+      "join_date": "2021-06-01",
+      "status": "active"
+    },
+    {
+      "id": 5,
+      "name": "Emma Davis",
+      "email": "emma.davis@neuralfluxcorp.com",
+      "department": "Product",
+      "position": "Product Manager",
+      "salary": 135000,
+      "join_date": "2022-08-15",
+      "status": "on_leave"
+    }
+  ],
+  "messages": [
+    {
+      "id": 1,
+      "from": "Abu@neuralfluxcorp.com",
+      "to": "psychoSherlock@neuralfluxcorp.com",
+      "subject": "Security Issues Found in Website",
+      "body": "Hey, our team discovered some serious loopholes in the website during the security audit. We found several vulnerabilities that could potentially be exploited. Need to discuss this urgently.",
+      "timestamp": "2025-10-16T09:15:00Z",
+      "priority": "high",
+      "read": false
+    },
+    {
+      "id": 2,
+      "from": "psychoSherlock@neuralfluxcorp.com",
+      "to": "Abu@neuralfluxcorp.com",
+      "subject": "Re: Security Issues Found in Website",
+      "body": "Thanks for the heads up. I've successfully migrated the server to Docker. The issues are pending to be fixed. Therefore all sensitive data were moved to /.dockerenv for protection purposes until we patch the vulnerabilities.",
+      "timestamp": "2025-10-16T08:45:00Z",
+      "priority": "medium",
+      "read": true
+    },
+    {
+      "id": 3,
+      "from": "Abu@neuralfluxcorp.com",
+      "to": "psychoSherlock@neuralfluxcorp.com",
+      "subject": "Additional Loopholes Discovered",
+      "body": "Found more issues with the admin endponints. The team is documenting everything. We should prioritize fixing these before they get exploited.",
+      "timestamp": "2025-10-15T14:30:00Z",
+      "priority": "low",
+      "read": true
+    },
+    {
+      "id": 4,
+      "from": "psychoSherlock@neuralfluxcorp.com",
+      "to": "Abu@neuralfluxcorp.com",
+      "subject": "Re: Additional Loopholes Discovered",
+      "body": "Understood. Good thing we moved everything critical to /.dockerenv. Let me know when you have the full report ready and we'll schedule a fix deployment.",
+      "timestamp": "2025-10-15T11:00:00Z",
+      "priority": "high",
+      "read": false
+    },
+    {
+      "id": 5,
+      "from": "Abu@neuralfluxcorp.com",
+      "to": "psychoSherlock@neuralfluxcorp.com",
+      "subject": "Security Audit Report",
+      "body": "Sending over the complete security audit. The loopholes in the website are documented with severity levels. Some are critical and need immediate attention.",
+      "timestamp": "2025-10-14T16:20:00Z",
+      "priority": "medium",
+      "read": true
+    }
+  ],
+  "model_deployments": [
+    {
+      "id": 1,
+      "model_name": "NeuralFlux-Vision-v2.1",
+      "version": "2.1.0",
+      "status": "deployed",
+      "environment": "production",
+      "accuracy": 94.5,
+      "last_updated": "2025-10-10T12:00:00Z"
+    },
+    {
+      "id": 2,
+      "model_name": "NeuralFlux-NLP-Sentiment",
+      "version": "1.8.3",
+      "status": "deployed",
+      "environment": "production",
+      "accuracy": 91.2,
+      "last_updated": "2025-10-05T09:30:00Z"
+    },
+    {
+      "id": 3,
+      "model_name": "NeuralFlux-Recommender",
+      "version": "3.0.0-beta",
+      "status": "testing",
+      "environment": "staging",
+      "accuracy": 88.7,
+      "last_updated": "2025-10-15T14:45:00Z"
+    }
+  ],
+  "api_usage": [
+    {
+      "date": "2025-10-16",
+      "endpoint": "/api/predict",
+      "requests": 15234,
+      "avg_latency_ms": 45,
+      "error_rate": 0.2
+    },
+    {
+      "date": "2025-10-16",
+      "endpoint": "/api/analyze",
+      "requests": 8921,
+      "avg_latency_ms": 120,
+      "error_rate": 0.5
+    },
+    {
+      "date": "2025-10-16",
+      "endpoint": "/api/recommend",
+      "requests": 12456,
+      "avg_latency_ms": 65,
+      "error_rate": 0.3
+    }
+  ],
+  "training_jobs": [
+    {
+      "id": 1,
+      "job_name": "neural-vision-retrain-oct-2025",
+      "status": "completed",
+      "start_time": "2025-10-15T00:00:00Z",
+      "end_time": "2025-10-15T18:45:00Z",
+      "gpu_hours": 18.75,
+      "cost": 425.5
+    },
+    {
+      "id": 2,
+      "job_name": "nlp-sentiment-finetune",
+      "status": "running",
+      "start_time": "2025-10-16T06:00:00Z",
+      "end_time": null,
+      "gpu_hours": 4.5,
+      "cost": 102.0
+    },
+    {
+      "id": 3,
+      "job_name": "recommender-v3-training",
+      "status": "queued",
+      "start_time": null,
+      "end_time": null,
+      "gpu_hours": 0,
+      "cost": 0
+    }
+  ]
+}
