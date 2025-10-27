@@ -6,5 +6,5 @@ Thank you H7Tex community for inviting me to create challenges. I was in the mid
 
 I built two web challenges for the online round:
 
-- [Alohomora.md](Alohomora.md)
-- [NeuralFluxCorp.md](NeuralFluxCorp.md)
+- [Alohomora.md](Alohomora/Alohomora.md)
+- [NeuralFluxCorp.md](NeuralFluxCorp/NeuralFluxCorp.md)
