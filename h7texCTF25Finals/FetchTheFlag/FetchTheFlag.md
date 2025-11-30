@@ -12,6 +12,8 @@ Go on! Fetch The Flag 🙂
 
 ---
 
+![Challenge Image](challenge.png)
+
 ## Writeup & Solution
 
 So this one is meant to be really easy and warm for the players. I know some might have found it related to cryptography but it's not really! The crypto part is not the goal, the actual goal is to find the vulnerability. Crypto part you can solve easily with any available AI.

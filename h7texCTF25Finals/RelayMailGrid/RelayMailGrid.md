@@ -32,6 +32,8 @@ Cost: 500
 
 ---
 
+![Challenge Image](./challenge.png)
+
 ## Details
 
 This is based on a bug that I've found recently during my security testings at where I did internship. It was pretty interesting to me so I thought might be fun and insightful.

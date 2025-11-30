@@ -12,11 +12,6 @@ Writeup is way too late, I know and a lot of players have already did theirs and
 
 I built two web challenges for the finals:
 
-- [Alohomora](Alohomora/Alohomora.md)
-- [NeuralFluxCorp](NeuralFluxCorp/NeuralFluxCorp.md)
-
-I also built one misc challenge:
-
 - [FetchTheFlag](FetchTheFlag/FetchTheFlag.md)
 - [RelayMailGrid](RelayMailGrid/RelayMailGrid.md)
 
